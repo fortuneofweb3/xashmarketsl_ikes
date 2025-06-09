@@ -69,7 +69,7 @@ async def get_tweet_likers(tweet_id: str, next_token: str | None = None, api_key
         return JSONResponse({
             "likers": [],
             "meta": {"result_count": 0},
-            "next_token": null,
+            "next_token": None,
             "cached": False,
             "message": f"No cached data. Wait {wait_time} seconds for new request."
         }, status_code=429, headers={"Retry-After": str(wait_time)})
@@ -95,7 +95,7 @@ async def get_tweet_likers(tweet_id: str, next_token: str | None = None, api_key
             return JSONResponse({
                 "likers": [],
                 "meta": {"result_count": 0},
-                "next_token": null,
+                "next_token": None,
                 "cached": False,
                 "message": f"X API rate limit hit. Wait {retry_after} seconds."
             }, status_code=429, headers={"Retry-After": str(retry_after)})
